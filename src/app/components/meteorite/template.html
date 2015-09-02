@@ -1,0 +1,12 @@
+<div id="filterContainer" style="display:flex; justify-content:center;">
+	<div style="padding:10px;">
+		<label for="startSelector">Start</label>
+		<select id="startSelector" ng-model="ctrl.vm.start" ng-change="ctrl.vm.dateRangeChanged()" ng-options="year for year in ctrl.vm.starts(ctrl.vm.end)"></select>
+	</div>
+	<div style="padding:10px;">
+		<label for="endSelector">End</label>
+		<select id="endSelector" ng-model="ctrl.vm.end" ng-change="ctrl.vm.dateRangeChanged()" ng-options="year for year in ctrl.vm.ends(ctrl.vm.start)"></select>
+	</div>
+</div>
+
+<svg width="900" height="500"></svg>
