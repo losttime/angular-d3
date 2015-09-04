@@ -72,6 +72,12 @@ meteoriteModule.directive('meteoriteChart', ['meteoriteData', function(meteorite
 					.sortKeys(d3.ascending)
 					.entries(dataset);
 
+				nestedData.sort(function(oa, ob) {
+					var a = new Date(oa.key);
+					var b = new Date(ob.key);
+					return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+				});
+
 				xScale = d3.time.scale()
 					.domain([d3.min(nestedData, function(d) {
 						return new Date(d.key);
